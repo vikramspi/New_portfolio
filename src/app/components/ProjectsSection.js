@@ -86,6 +86,13 @@ const projects = [
     href: "/projects/munshot", // Add href to Munshot
   },
   {
+    title: "Graphic Design Work",
+    description: "A collection of creative designs for various projects.",
+    header: <img src="graphic-work.png" />,
+    icon: <Icon name="G" />,
+    href: "/projects/graphics", // This will now work
+  },
+  {
     title: "Mobile Banking App",
     description:
       "Secure and intuitive mobile banking with biometric authentication.",
@@ -122,12 +129,5 @@ const projects = [
     ),
     icon: <Icon name="P" />,
     // No href - not clickable
-  },
-  {
-    title: "Graphic Design Work",
-    description: "A collection of creative designs for various projects.",
-    header: <img src="graphic-work.png" />,
-    icon: <Icon name="G" />,
-    href: "/projects/graphics", // This will now work
   },
 ];
