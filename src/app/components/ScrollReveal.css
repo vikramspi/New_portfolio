@@ -1,0 +1,14 @@
+.scroll-reveal {
+  margin: 40px 0;
+}
+
+.scroll-reveal-text {
+  /* Removed the fixed font-size so Tailwind classes can work */
+  line-height: 1.5;
+  font-weight: 600;
+  color: white;             /* visible on dark hero bg */
+}
+
+.word {
+  display: inline-block;    /* needed for per-word animation */
+}
