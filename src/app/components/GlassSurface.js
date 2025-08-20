@@ -1,4 +1,4 @@
-import { useEffect, useRef, useId } from "react";
+import { useEffect, useRef, useId, useState } from "react";
 import "./GlassSurface.css";
 
 const GlassSurface = ({
@@ -23,7 +23,7 @@ const GlassSurface = ({
   className = "",
   style = {},
 }) => {
-  const uniqueId = useId().replace(/:/g, '-');
+  const uniqueId = useId().replace(/:/g, "-");
   const filterId = `glass-filter-${uniqueId}`;
   const redGradId = `red-grad-${uniqueId}`;
   const blueGradId = `blue-grad-${uniqueId}`;
@@ -33,6 +33,10 @@ const GlassSurface = ({
   const greenChannelRef = useRef(null);
   const blueChannelRef = useRef(null);
   const gaussianBlurRef = useRef(null);
+
+  // Add state to track if we're on the client side
+  const [isClient, setIsClient] = useState(false);
+  const [supportsSVG, setSupportsSVG] = useState(false);
 
   const generateDisplacementMap = () => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -65,7 +69,38 @@ const GlassSurface = ({
     feImageRef.current?.setAttribute("href", generateDisplacementMap());
   };
 
+  // Check for SVG filter support only on the client side
+  const checkSVGFilterSupport = () => {
+    // Return false during SSR
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    const isWebkit =
+      /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+    const isFirefox = /Firefox/.test(navigator.userAgent);
+    if (isWebkit || isFirefox) {
+      return false;
+    }
+
+    try {
+      const div = document.createElement("div");
+      div.style.backdropFilter = `url(#${filterId})`;
+      return div.style.backdropFilter !== "";
+    } catch (error) {
+      return false;
+    }
+  };
+
+  // Set client-side state after component mounts
   useEffect(() => {
+    setIsClient(true);
+    setSupportsSVG(checkSVGFilterSupport());
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     updateDisplacementMap();
 
     [
@@ -76,7 +111,7 @@ const GlassSurface = ({
       if (ref.current) {
         ref.current.setAttribute(
           "scale",
-          (distortionScale + offset).toString()
+          (distortionScale + offset).toString(),
         );
         ref.current.setAttribute("xChannelSelector", xChannel);
         ref.current.setAttribute("yChannelSelector", yChannel);
@@ -85,6 +120,7 @@ const GlassSurface = ({
 
     gaussianBlurRef.current?.setAttribute("stdDeviation", displace.toString());
   }, [
+    isClient,
     width,
     height,
     borderRadius,
@@ -103,7 +139,7 @@ const GlassSurface = ({
   ]);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !isClient) return;
 
     const resizeObserver = new ResizeObserver(() => {
       setTimeout(updateDisplacementMap, 0);
@@ -114,24 +150,12 @@ const GlassSurface = ({
     return () => {
       resizeObserver.disconnect();
     };
-  }, []);
+  }, [isClient]);
 
   useEffect(() => {
+    if (!isClient) return;
     setTimeout(updateDisplacementMap, 0);
-  }, [width, height]);
-
-  const supportsSVGFilters = () => {
-    const isWebkit =
-      /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-    const isFirefox = /Firefox/.test(navigator.userAgent);
-    if (isWebkit || isFirefox) {
-      return false;
-    }
-
-    const div = document.createElement("div");
-    div.style.backdropFilter = `url(#${filterId})`;
-    return div.style.backdropFilter !== "";
-  };
+  }, [width, height, isClient]);
 
   const containerStyle = {
     ...style,
@@ -146,7 +170,7 @@ const GlassSurface = ({
   return (
     <div
       ref={containerRef}
-      className={`glass-surface ${supportsSVGFilters() ? "glass-surface--svg" : "glass-surface--fallback"} ${className}`}
+      className={`glass-surface ${supportsSVG ? "glass-surface--svg" : "glass-surface--fallback"} ${className}`}
       style={containerStyle}
     >
       <svg className="glass-surface__filter" xmlns="http://www.w3.org/2000/svg">
