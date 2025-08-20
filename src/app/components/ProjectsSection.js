@@ -93,41 +93,34 @@ const projects = [
     href: "/projects/graphics", // This will now work
   },
   {
-    title: "Mobile Banking App",
+    title: "Sum re-call shi",
     description:
-      "Secure and intuitive mobile banking with biometric authentication.",
+      "An educational platform with interactive courses and progress tracking.",
+    header: <img src="recCallfront.png" />,
+    icon: <Icon name="L" />,
+    href: "/projects/re-call",
+  },
+  {
+    title: "3D Animation",
+    description: "Collection of my work in 3D animation.",
     header: (
       <ProjectSkeleton gradient="bg-gradient-to-br from-green-500/20 to-teal-500/20" />
     ),
-    icon: <Icon name="M" />,
-    // No href - not clickable
+    icon: <Icon name="3D" />,
+    href: "/projects/three-d",
   },
   {
-    title: "Learning Management System",
-    description:
-      "An educational platform with interactive courses and progress tracking.",
-    header: (
-      <ProjectSkeleton gradient="bg-gradient-to-br from-blue-500/20 to-cyan-500/20" />
-    ),
-    icon: <Icon name="L" />,
-    // No href - not clickable
-  },
-  {
-    title: "Social Media Platform",
+    title: "E-coin or sum shi",
     description: "Focusing on meaningful connections and user privacy.",
-    header: (
-      <ProjectSkeleton gradient="bg-gradient-to-br from-pink-500/20 to-purple-500/20" />
-    ),
+    header: <img src="eCoinfront.png" />,
     icon: <Icon name="S" />,
-    // No href - not clickable
+    href: "/projects/e-coin",
   },
   {
-    title: "Portfolio Website",
+    title: "barber bsdwala",
     description: "This very site, built with Next.js, WebGL, and GSAP.",
-    header: (
-      <ProjectSkeleton gradient="bg-gradient-to-br from-yellow-500/20 to-orange-500/20" />
-    ),
+    header: <img src="bhadwa.png" />,
     icon: <Icon name="P" />,
-    // No href - not clickable
+    href: "/projects/barber",
   },
 ];

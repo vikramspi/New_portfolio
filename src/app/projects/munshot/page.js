@@ -7,6 +7,25 @@ const generateImagePaths = (folder, filenames) => {
 };
 
 export default function MunshotProjectPage() {
+  const agentImages = [
+    "1.png",
+    "2.png",
+    "3.png",
+    "4.png",
+    "5.png",
+    "6.png",
+    "7.png",
+    "8.png",
+    "9.png",
+    "10.png",
+    "11.png",
+    "13.png",
+    "14.png",
+    "15.png",
+    "16.png",
+    "17.png",
+    "20.png",
+  ];
   const heroImages = [
     "1.png",
     "2.png",
@@ -16,11 +35,46 @@ export default function MunshotProjectPage() {
     "6.png",
     "7.png",
     "8.png",
+    "9.png",
+    "10.png",
+    "11.png",
+    "13.png",
+    "14.png",
+    "15.png",
+    "16.png",
+    "17.png",
+    "20.png",
+    "24.png",
+    "25.png",
+    "27.png",
+    "28.png",
   ];
-  const chatImages = ["1.png", "2.png", "3.png"];
-  const screeningImages = ["6.png", "8.png"];
+  const chatImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
+  const screeningImages = [
+    "1.png",
+    "2.png",
+    "3.png",
+    "4.png",
+    "5.png",
+    "6.png",
+    "7.png",
+    "8.png",
+    "9.png",
+    "10.png",
+    "11.png",
+    "13.png",
+    "14.png",
+    "15.png",
+    "17.png",
+    "20.png",
+    "24.png",
+    "25.png",
+    "27.png",
+    "28.png",
+  ];
 
   const allImages = [
+    ...generateImagePaths("Agent", agentImages),
     ...generateImagePaths("Hero", heroImages),
     ...generateImagePaths("Chat", chatImages),
     ...generateImagePaths("Screening", screeningImages),
