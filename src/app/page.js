@@ -13,7 +13,7 @@ export default function Home() {
       <section
         id="hero"
         style={{
-          height: "100vh",
+          height: "60vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

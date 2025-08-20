@@ -7,7 +7,7 @@ import {
   useTransform,
   useMotionTemplate,
 } from "framer-motion"; // Note: The original code used 'motion/react', but framer-motion is the standard
-import { cn } from "./utils";
+import { cn } from "../../lib/utils";
 
 export const CometCard = ({
   rotateDepth = 17.5,
@@ -24,22 +24,22 @@ export const CometCard = ({
   const rotateX = useTransform(
     mouseYSpring,
     [-0.5, 0.5],
-    [`${rotateDepth}deg`, `-${rotateDepth}deg`]
+    [`${rotateDepth}deg`, `-${rotateDepth}deg`],
   );
   const rotateY = useTransform(
     mouseXSpring,
     [-0.5, 0.5],
-    [`-${rotateDepth}deg`, `${rotateDepth}deg`]
+    [`-${rotateDepth}deg`, `${rotateDepth}deg`],
   );
   const translateX = useTransform(
     mouseXSpring,
     [-0.5, 0.5],
-    [`-${translateDepth}px`, `${translateDepth}px`]
+    [`-${translateDepth}px`, `${translateDepth}px`],
   );
   const translateY = useTransform(
     mouseYSpring,
     [-0.5, 0.5],
-    [`${translateDepth}px`, `-${translateDepth}px`]
+    [`${translateDepth}px`, `-${translateDepth}px`],
   );
   const glareX = useTransform(mouseXSpring, [-0.5, 0.5], [100, 0]);
   const glareY = useTransform(mouseYSpring, [-0.5, 0.5], [100, 0]);
@@ -64,9 +64,7 @@ export const CometCard = ({
   };
 
   return (
-    <div
-      className={cn("perspective-[800px] transform-style-3d", className)}
-    >
+    <div className={cn("perspective-[800px] transform-style-3d", className)}>
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}

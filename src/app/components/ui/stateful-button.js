@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "./utils"; // Assuming utils.js is in the same directory
+import { cn } from "../../lib/utils"; // Assuming utils.js is in the same directory
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -89,7 +89,7 @@ export const Button = ({ className, children, onClick }) => {
         {
           "bg-green-500 hover:bg-green-600": state === "success",
         },
-        className
+        className,
       )}
       disabled={state !== "idle"}
     >
