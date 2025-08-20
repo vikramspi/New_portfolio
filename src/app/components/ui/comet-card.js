@@ -1,12 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  useMotionTemplate,
-} from "framer-motion"; // Note: The original code used 'motion/react', but framer-motion is the standard
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { cn } from "../../lib/utils";
 
 export const CometCard = ({
@@ -41,9 +35,6 @@ export const CometCard = ({
     [-0.5, 0.5],
     [`${translateDepth}px`, `-${translateDepth}px`],
   );
-  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], [100, 0]);
-  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], [100, 0]);
-  const glareBackground = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%)`;
 
   const handleMouseMove = (e) => {
     if (!ref.current) return;
@@ -89,12 +80,7 @@ export const CometCard = ({
         className="relative rounded-2xl"
       >
         {children}
-        <motion.div
-          className="pointer-events-none absolute inset-0 z-10 h-full w-full rounded-xl mix-blend-soft-light"
-          style={{
-            background: glareBackground,
-          }}
-        />
+        {/* Removed the glare/glow effect div completely */}
       </motion.div>
     </div>
   );

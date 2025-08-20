@@ -237,9 +237,9 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for Chat UI */}
+          {/* Image placeholder for Chat UI - NOW 75% SCREEN WIDTH */}
           <div className="flex justify-center my-8">
-            <div className="w-full max-w-3xl bg-white/10 border border-white/20 rounded-lg p-4 text-center">
+            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
               <p className="text-white/60 italic">
                 [Insert Figma UI Screenshot for Chat Section - Document upload,
                 section organization, and chat interface]
@@ -291,9 +291,9 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for Agents UI */}
+          {/* Image placeholder for Agents UI - NOW 75% SCREEN WIDTH */}
           <div className="flex justify-center my-8">
-            <div className="w-full max-w-3xl bg-white/10 border border-white/20 rounded-lg p-4 text-center">
+            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
               <p className="text-white/60 italic">
                 [Insert Figma UI Screenshot for Agents Section - Agent library,
                 custom agent builder, and scheduling options]
@@ -345,9 +345,9 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for AI Sheets UI */}
+          {/* Image placeholder for AI Sheets UI - NOW 75% SCREEN WIDTH */}
           <div className="flex justify-center my-8">
-            <div className="w-full max-w-3xl bg-white/10 border border-white/20 rounded-lg p-4 text-center">
+            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
               <p className="text-white/60 italic">
                 [Insert Figma UI Screenshot for AI Sheets Section - Parameter
                 selection UI, generated sheet, and chat interface]
@@ -405,9 +405,9 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for Screening UI */}
+          {/* Image placeholder for Screening UI - NOW 75% SCREEN WIDTH */}
           <div className="flex justify-center my-8">
-            <div className="w-full max-w-3xl bg-white/10 border border-white/20 rounded-lg p-4 text-center">
+            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
               <p className="text-white/60 italic">
                 [Insert Figma UI Screenshot for Screening Section - AI step
                 generator, manual step builder, and final output with company
