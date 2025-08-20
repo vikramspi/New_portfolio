@@ -1,6 +1,5 @@
 "use client";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
-import Link from 'next/link'; // Import the Link component for navigation
 
 export function ProjectsSection() {
   return (
@@ -12,26 +11,49 @@ export function ProjectsSection() {
             A showcase of my work in UI/UX design and development
           </p>
         </div>
-        
-        <BentoGrid className="max-w-6xl mx-auto md:grid-cols-3">
+
+        {/* Taller rows: 340px each at md+ */}
+        <BentoGrid className="max-w-6xl mx-auto md:grid-cols-3 md:auto-rows-[340px] gap-4">
           {projects.map((item, i) => {
-            const isLink = !!item.href;
-            const Component = isLink ? Link : 'div';
+            let extra = "";
+
+            // Row 1: big (2x2) on the left
+            if (i === 0)
+              extra =
+                "md:col-start-1 md:row-start-1 md:col-span-2 md:row-span-2";
+
+            // Row 1 right column: Mobile Banking (top), LMS (bottom)
+            if (i === 1) extra = "md:col-start-3 md:row-start-1";
+            if (i === 2) extra = "md:col-start-3 md:row-start-2";
+
+            // Row 2 left column: Social Media (top), Portfolio (below it)
+            if (i === 3) extra = "md:col-start-1 md:row-start-3";
+            if (i === 4) extra = "md:col-start-1 md:row-start-4";
+
+            // Row 2 right side: Task Management big (2x2) starting at col 2, row 3
+            if (i === 5)
+              extra =
+                "md:col-start-2 md:row-start-3 md:col-span-2 md:row-span-2";
+
+            const hasLink = item.href; // Check if project has a link
 
             return (
-              <Component href={item.href || ''} key={i}>
+              <div key={i} className={`relative ${extra} md:min-h-[340px]`}>
                 <BentoGridItem
                   title={item.title}
                   description={item.description}
                   header={item.header}
                   icon={item.icon}
-                  className={
-                    // This logic restores your original 2x2 grid item placement
-                    (i === 0 || i === 5 ? "md:col-span-2 md:row-span-2 " : "") +
-                    (isLink ? "cursor-pointer hover:border-purple-400/50 transition-colors duration-300" : "")
-                  }
+                  className="h-full"
                 />
-              </Component>
+                {hasLink && (
+                  <a
+                    href={item.href}
+                    className="absolute inset-0 z-10 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 cursor-pointer hover:bg-white/5 transition-colors"
+                    aria-label={`Open ${item.title} project`}
+                  />
+                )}
+              </div>
             );
           })}
         </BentoGrid>
@@ -40,8 +62,11 @@ export function ProjectsSection() {
   );
 }
 
+/* Utility components */
 const ProjectSkeleton = ({ gradient }) => (
-  <div className={`flex flex-1 w-full h-full min-h-[6rem] rounded-xl ${gradient}`}></div>
+  <div
+    className={`flex flex-1 w-full h-full min-h-[6rem] rounded-xl ${gradient}`}
+  ></div>
 );
 
 const Icon = ({ name }) => (
@@ -50,43 +75,52 @@ const Icon = ({ name }) => (
   </div>
 );
 
-// This is the restored, full list of projects in the correct order
+/* Projects (order matters for the explicit placement above) */
 const projects = [
-  { 
+  {
     title: "Munshot",
-    description: "An AI-Powered Financial Intelligence Platform for Hedge Funds.",
-    header: <ProjectSkeleton gradient="bg-gradient-to-br from-purple-500/20 to-blue-500/20" />,
+    description:
+      "An AI-Powered Financial Intelligence Platform for Hedge Funds.",
+    header: <img src="munshot.jpeg" />,
     icon: <Icon name="M" />,
-    href: "/projects/munshot", // Link to the project page
+    href: "/projects/munshot", // Add href to Munshot
   },
-  { 
-    title: "Mobile Banking App",
-    description: "Secure and intuitive mobile banking with biometric authentication.",
-    header: <ProjectSkeleton gradient="bg-gradient-to-br from-green-500/20 to-teal-500/20" />,
-    icon: <Icon name="M" />,
+  {
+    title: "Graphic Design Work",
+    description: "A collection of creative designs for various projects.",
+    header: <img src="graphic-work.png" />,
+    icon: <Icon name="G" />,
+    href: "/projects/graphics", // This will now work
   },
-  { 
-    title: "Learning Management System",
-    description: "An educational platform with interactive courses and progress tracking.",
-    header: <ProjectSkeleton gradient="bg-gradient-to-br from-blue-500/20 to-cyan-500/20" />,
+  {
+    title: "Sum re-call shi",
+    description:
+      "An educational platform with interactive courses and progress tracking.",
+    header: <img src="recCallfront.png" />,
     icon: <Icon name="L" />,
+    href: "/projects/re-call",
   },
   {
-    title: "Social Media Platform",
+    title: "3D Animation",
+    description: "Collection of my work in 3D animation.",
+    header: (
+      <ProjectSkeleton gradient="bg-gradient-to-br from-green-500/20 to-teal-500/20" />
+    ),
+    icon: <Icon name="3D" />,
+    href: "/projects/three-d",
+  },
+  {
+    title: "E-coin or sum shi",
     description: "Focusing on meaningful connections and user privacy.",
-    header: <ProjectSkeleton gradient="bg-gradient-to-br from-pink-500/20 to-purple-500/20" />,
+    header: <img src="eCoinfront.png" />,
     icon: <Icon name="S" />,
+    href: "/projects/e-coin",
   },
   {
-    title: "Portfolio Website",
+    title: "barber bsdwala",
     description: "This very site, built with Next.js, WebGL, and GSAP.",
-    header: <ProjectSkeleton gradient="bg-gradient-to-br from-yellow-500/20 to-orange-500/20" />,
+    header: <img src="bhadwa.png" />,
     icon: <Icon name="P" />,
-  },
-  {
-    title: "Task Management Tool",
-    description: "A collaborative tool for teams to manage projects and track progress effectively.",
-    header: <ProjectSkeleton gradient="bg-gradient-to-br from-indigo-500/20 to-purple-500/20" />,
-    icon: <Icon name="T" />,
+    href: "/projects/barber",
   },
 ];

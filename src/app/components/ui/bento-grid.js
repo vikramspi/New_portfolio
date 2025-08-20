@@ -1,4 +1,4 @@
-import { cn } from "./utils"; 
+import { cn } from "../../lib/utils";
 import { GlowingEffect } from "./glowing-effect";
 
 export const BentoGrid = ({ className, children }) => {
@@ -37,7 +37,7 @@ export const BentoGridItem = ({
         inactiveZone={0.01}
         borderWidth={1.5}
       />
-      
+
       <div className="relative z-10 flex h-full flex-col justify-between space-y-4 p-4">
         {header}
         <div className="transition duration-200 group-hover/bento:translate-x-2">
