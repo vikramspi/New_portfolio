@@ -21,7 +21,6 @@ export default function MunshotProjectPage() {
     "11.png",
     "13.png",
     "14.png",
-    "15.png",
     "16.png",
     "17.png",
     "20.png",
@@ -291,14 +290,13 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for Chat UI - NOW 75% SCREEN WIDTH */}
+          {/* Image for Chat UI */}
           <div className="flex justify-center my-8">
-            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
-              <p className="text-white/60 italic">
-                [Insert Figma UI Screenshot for Chat Section - Document upload,
-                section organization, and chat interface]
-              </p>
-            </div>
+            <img
+              src="/Munshot/Screening/1.png"
+              alt="Munshot AI-powered chat and document analysis interface"
+              className="w-full max-w-4xl rounded-lg border border-white/20 shadow-lg"
+            />
           </div>
         </div>
 
@@ -345,14 +343,18 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for Agents UI - NOW 75% SCREEN WIDTH */}
-          <div className="flex justify-center my-8">
-            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
-              <p className="text-white/60 italic">
-                [Insert Figma UI Screenshot for Agents Section - Agent library,
-                custom agent builder, and scheduling options]
-              </p>
-            </div>
+          {/* Images for Agents UI */}
+          <div className="flex flex-col md:flex-row justify-center gap-4 my-8">
+            <img
+              src="/Munshot/Screening/7.png"
+              alt="Library of saved analysis agents in Munshot"
+              className="w-full md:w-1/2 rounded-lg border border-white/20 shadow-lg"
+            />
+            <img
+              src="/Munshot/Screening/10.png"
+              alt="Scheduling an automated agent to run daily"
+              className="w-full md:w-1/2 rounded-lg border border-white/20 shadow-lg"
+            />
           </div>
         </div>
 
@@ -399,14 +401,13 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for AI Sheets UI - NOW 75% SCREEN WIDTH */}
+          {/* Image for AI Sheets UI */}
           <div className="flex justify-center my-8">
-            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
-              <p className="text-white/60 italic">
-                [Insert Figma UI Screenshot for AI Sheets Section - Parameter
-                selection UI, generated sheet, and chat interface]
-              </p>
-            </div>
+            <img
+              src="/Munshot/Screening/5.png"
+              alt="Munshot AI Sheets showing historical price, volatility, and event data"
+              className="w-full max-w-4xl rounded-lg border border-white/20 shadow-lg"
+            />
           </div>
         </div>
 
@@ -459,15 +460,23 @@ export default function MunshotProjectPage() {
             </div>
           </div>
 
-          {/* Image placeholder for Screening UI - NOW 75% SCREEN WIDTH */}
-          <div className="flex justify-center my-8">
-            <div className="w-[75vw] bg-white/10 border border-white/20 rounded-lg p-4 text-center">
-              <p className="text-white/60 italic">
-                [Insert Figma UI Screenshot for Screening Section - AI step
-                generator, manual step builder, and final output with company
-                analysis]
-              </p>
-            </div>
+          {/* Image gallery for Screening UI */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+            <img
+              src="/Munshot/Screening/2.png"
+              alt="Creating a new company screen in Munshot"
+              className="w-full rounded-lg border border-white/20 shadow-lg"
+            />
+            <img
+              src="/Munshot/Screening/3.png"
+              alt="AI-generated audit trail for a screening process"
+              className="w-full rounded-lg border border-white/20 shadow-lg"
+            />
+            <img
+              src="/Munshot/Screening/4.png"
+              alt="Detailed company analysis from a screening result"
+              className="w-full rounded-lg border border-white/20 shadow-lg"
+            />
           </div>
         </div>
       </div>
