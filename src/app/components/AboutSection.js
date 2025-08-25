@@ -2,6 +2,7 @@
 import React from "react";
 import ScrollReveal from "./ScrollReveal";
 import { BrainCircuit, Code, Palette, Download } from "lucide-react";
+import { CometCard } from "./ui/comet-card"; // 1. Import the CometCard component
 
 // Cards for your expertise areas
 const expertiseAreas = [
@@ -46,19 +47,22 @@ export function AboutSection() {
           product-management mindset with hands-on design, guiding products from
           research and wireframing through to high-impact visual interfaces.
         </div>
+        
         {/* --- Areas of Expertise --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-6xl mb-20">
           {expertiseAreas.map((area, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center text-center p-6 border border-white/10 rounded-2xl bg-black/20 backdrop-blur-sm"
-            >
-              {area.icon}
-              <h3 className="text-2xl font-bold text-white mb-3">
-                {area.title}
-              </h3>
-              <p className="text-md text-white/70">{area.description}</p>
-            </div>
+            // 2. Wrap each card with the CometCard component
+            <CometCard key={idx} className="h-full">
+              <div
+                className="flex flex-col items-center text-center p-6 border border-white/10 rounded-2xl bg-black/20 backdrop-blur-sm h-full"
+              >
+                {area.icon}
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  {area.title}
+                </h3>
+                <p className="text-md text-white/70">{area.description}</p>
+              </div>
+            </CometCard>
           ))}
         </div>
 

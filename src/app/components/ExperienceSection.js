@@ -2,7 +2,6 @@
 import React from "react";
 import { CometCard } from "./ui/comet-card";
 
-// Data remains the same
 const experiences = [
   {
     company: "Inditech Health Solutions",
@@ -52,24 +51,17 @@ export function ExperienceSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {experiences.map((exp, index) => (
             <CometCard key={index} className="h-full">
-              <div className="w-full cursor-pointer flex flex-col rounded-2xl border border-white/15 bg-black/30 backdrop-blur-sm p-8 h-full min-h-[400px] hover:bg-black/40 transition-all duration-300">
+              <div className="w-full cursor-pointer flex flex-col rounded-2xl border border-white/15 bg-black/30 backdrop-blur-sm p-8 h-full hover:bg-black/40 transition-all duration-300">
                 <div className="flex flex-col h-full">
-                  {/* Company name */}
                   <h3 className="text-2xl font-bold text-white mb-3 leading-tight">
                     {exp.company}
                   </h3>
-
-                  {/* Role */}
                   <p className="text-lg font-semibold text-purple-300 mb-3 leading-snug">
                     {exp.role}
                   </p>
-
-                  {/* Duration */}
                   <p className="text-sm text-white/60 mb-6 font-medium">
                     {exp.duration}
                   </p>
-
-                  {/* Summary points */}
                   <ul className="space-y-4 text-base text-white/80 flex-grow leading-relaxed">
                     {exp.summary.map((point, i) => (
                       <li key={i} className="flex items-start">

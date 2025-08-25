@@ -5,7 +5,6 @@ export const BentoGrid = ({ className, children }) => {
   return (
     <div
       className={cn(
-        // The change is here: I've increased the row height from 22rem to 28rem
         "mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[28rem] md:grid-cols-3",
         className,
       )}
@@ -25,7 +24,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "group/bento row-span-1 rounded-xl border border-neutral-200 bg-white/10 backdrop-blur-md transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black/20 dark:shadow-none relative overflow-visible",
+        "group/bento row-span-1 rounded-xl border border-neutral-200 bg-white/10 backdrop-blur-md transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black/20 dark:shadow-none relative overflow-visible h-full",
         className,
       )}
     >

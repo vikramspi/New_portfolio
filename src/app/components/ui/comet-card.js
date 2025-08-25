@@ -77,10 +77,10 @@ export const CometCard = ({
           stiffness: 300,
           damping: 20,
         }}
-        className="relative rounded-2xl"
+        // --- FIX IS HERE: Added h-full to make the animated part stretch ---
+        className="relative rounded-2xl h-full"
       >
         {children}
-        {/* Removed the glare/glow effect div completely */}
       </motion.div>
     </div>
   );

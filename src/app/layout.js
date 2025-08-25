@@ -1,24 +1,30 @@
-// app/layout.tsx
+// app/layout.js
 import { Inter } from "next/font/google";
+// --- NEW: Import the custom font ---
+import { Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { BackgroundBeams } from "./components/Background";
-import Navbar from "./components/Navbar"; // This stays visible all time
+import Navbar from "./components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// --- NEW: Configure the font ---
+const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-great-vibes', // This is a CSS variable we can use
+});
+
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    // --- UPDATED: Add the font variable to the html tag ---
+    <html lang="en" className={`${greatVibes.variable}`}>
       <body className={inter.className}>
-        {/* Background component fixed behind everything */}
         <div className="fixed left-0 top-0 -z-10 h-full w-full">
           <BackgroundBeams />
         </div>
-
-        {/* Navbar stays fixed at the top always */}
         <Navbar />
-
-        {/* Main content with a relative z-index to stay on top */}
         <main className="relative z-10">{children}</main>
       </body>
     </html>
